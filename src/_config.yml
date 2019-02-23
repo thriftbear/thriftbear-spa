@@ -1,0 +1,85 @@
+#
+#
+# https://jekyllrb.com/docs/configuration/
+#
+#
+url: https://thriftbear.com
+baseurl: ''
+
+# Custom vars
+# google_analytics: UA-134333567-1
+
+#
+# Meta tags and User-facing descriptions
+#
+title: ThriftBear – The only store framework you’ll ever need.
+copyright: ThriftBear
+product_name: ThriftBear
+email: hello@thriftbear.com
+description: "Hosted ecommerce solutions are a great option for simple stores with low to medium traffic. But what happens when your store’s needs outgrow the capabilities of your current solution?"
+
+hero_text: The only store framework you’ll ever need.
+hero_cta: LEARN MORE
+
+# app_link_1: 
+
+
+# Blog-related
+show_excerpts: true
+
+# Site-levelw network handles
+# (eg: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: instagram
+    handle:  thriftbear
+    url: https://www.instagram.com/thriftbear/
+  #- title: youtube
+  #  handle:
+  #  url: https://www.youtube.com/channel/UCAwxyYkmm0cDGw5E80XI7OQ/featured
+  # - title: facebook
+  #   url: https://www.facebook.com/pg/unknownendeavors/
+
+# Create team member pages from src/_team/*.md files
+collections:
+  # team:
+  #   output: true
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate   
+# # Postal address (add as many lines as necessary)
+# address:
+# #  - line: Los Angeles, CA 90210
+
+# Directory / Files - what does this do?
+# defaults:
+#   - scope:
+#       path: "_assets"
+#     values:
+#       image: true
+
+jekyll-minifier:
+  preserve_php: true                # Default: false
+  remove_spaces_inside_tags: true   # Default: true
+  remove_multi_spaces: true         # Default: true
+  remove_comments: true             # Default: true
+  remove_intertag_spaces: true      # Default: false
+  remove_quotes: false              # Default: false
+  compress_css: true                # Default: true
+  compress_javascript: true         # Default: true
+  simple_doctype: false             # Default: false
+  remove_script_attributes: false   # Default: false
+  remove_style_attributes: false    # Default: false
+  remove_link_attributes: false     # Default: false
+  remove_form_attributes: false     # Default: false
+  remove_input_attributes: false    # Default: false
+  remove_javascript_protocol: false # Default: false
+  remove_http_protocol: false       # Default: false
+  remove_https_protocol: false      # Default: false
+  preserve_line_breaks: false       # Default: false
+  simple_boolean_attributes: false  # Default: false
+  compress_js_templates: false      # Default: false

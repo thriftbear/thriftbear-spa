@@ -1,0 +1,37 @@
+ModPagespeed off
+Header set Access-Control-Allow-Origin "*"
+Header unset Accept-Ranges
+
+# Browser Caching
+<FilesMatch "\.(ico|jpg|jpeg|png|gif|js|css|swf|svg|pdf|flv|mp3)$">
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access plus 2 days"
+ExpiresByType image/jpeg "access 2 days"
+ExpiresByType image/gif "access 2 days"
+ExpiresByType image/png "access 2 days"
+ExpiresByType text/css "access 2 days"
+ExpiresByType text/html "access 2 days"
+ExpiresByType application/pdf "access 2 days"
+ExpiresByType text/x-javascript "access 2 days"
+ExpiresByType image/x-icon "access 1 month"
+ExpiresDefault "access 1 month"
+Header set Cache-Control "public"
+</IfModule>
+</FilesMatch>
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /
+
+# Same as above, but avoiding a 302 error
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# forward request to html file, **but don't redirect (bot friendly)**
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Redirect all 404s to home page
+FallbackResource /index.html
+# ErrorDocument 404 /index.html
+</IfModule>

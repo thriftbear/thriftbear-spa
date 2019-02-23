@@ -1,0 +1,178 @@
+// @import url('https://fonts.googleapis.com/css?family=Lato:300,400|Karla:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i');
+
+
+//
+// Fonts and related mixins
+//
+
+$header-font-family: 'Lato', 'Helvetica Neue', Helvetica, sans-serif !default;
+$body-font-family: 'Lato', Arial, sans-serif !default;
+
+// Preset sizes
+$h1FontSize: 28px;
+$h2FontSize: 24px;
+$h3FontSize: 22px;
+$h4FontSize: 20px;
+$h5FontSize: 18px;
+$h6FontSize: 16px;
+$font-size-base: 14px;
+
+$base-font-weight: 400 !default;
+$small-font-size:  $font-size-base * 0.875 !default;
+$base-line-height: 1.65 !default;
+
+$text-color: $color-gray-dark;
+
+@mixin relative-font-size($ratio) {
+  font-size: $font-size-base * $ratio;
+}
+
+body {
+  font-family: $body-font-family;
+  font-weight: 300;
+  color: $color-gray-darkest;
+
+  p {
+    &.muted {
+      opacity: .9;
+    }
+
+    &.lead {
+      font-weight: 300;
+      padding: 0.75em 0;
+    }
+  }
+}
+// TODO: copy responsive mixin
+h1 {
+  // font-size: 32px;
+  font-weight: bold;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.hero {
+  font-weight: 500;
+  font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  font-style: italic;
+}
+
+h3, h4, h5, h6 {
+  text-transform: none !important;
+}
+
+
+.text-primary {
+  color: lighten($color-tertiary, 2);
+}
+
+.text-white {
+  color:  #fff;
+}
+
+section h2.section-heading {
+  margin: 2em 0 1em 0;
+  font-weight: 300;
+//   text-transform: uppercase;
+  color: $color-secondary;
+  text-shadow: 0.05rem 0.05rem 0.05rem rgba(255,255,255,0.75)
+}
+
+section h3.section-subheading {
+  margin-bottom: 75px;
+  text-transform: none;
+  font-size: 1.5em;
+  font-weight: 200;
+  letter-spacing: 0.015em;
+}
+
+header {
+  font-family: $header-font-family;
+}
+
+a:not(.navbar-link):not(.navbar-brand):not(.btn) {
+  color: $color-tertiary !important;
+  font-weight: 500;
+  &:visited {
+    color: $color-tertiary !important;
+  }
+  &:hover {
+  }
+}
+.post-meta {
+  // color: lighten($color-primary, 30);
+  color: lighten($color-gray, 10);
+  letter-spacing: 2px;
+}
+
+
+// Headings
+
+h1, h2, h3 {
+  font-weight: 300;
+  line-height: 1.5;
+}
+h4, h5, h6 {
+  font-weight: 600;
+}
+
+// Set `margin-bottom` to maintain vertical rhythm
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit;
+}
+
+blockquote {
+  position: relative;
+  padding: 2em;
+  background: #eaeaea;
+  border-radius: 2rem;
+  // padding-left: 20px;
+
+  border-width: 0 0 0 8px;
+  border-style: solid;
+  border-left: none;
+
+  @include relative-font-size(1.125);
+  letter-spacing: 0.5px;
+  font-style: italic;
+
+  // text-transform: uppercase;
+  > :last-child {
+    margin-bottom: 0;
+  }
+  &:before {
+    position: absolute;
+    opacity: 0.9;
+    content: "\201C";
+    color: lighten($color-primary, 10%);
+    left: 1em;
+    top: 0.6em;
+    font-family: Georgia, serif;
+    font-size: $h1FontSize;
+  }
+  &:after {
+    position: absolute;
+    opacity: 0.9;
+    content: "\201D";
+    color: lighten($color-primary, 10%);
+    right: 1em;
+    bottom: 0.3em;
+    font-family: Georgia, serif;
+    font-size: $h1FontSize;
+  }
+}
+
+i.fa {
+  padding: 0px 2px;
+  width: auto;
+  height: auto;
+}

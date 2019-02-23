@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ThriftBear – The only store framework you’ll ever need.</title>
+    <description>Hosted ecommerce solutions are a great option for simple stores with low to medium traffic. But what happens when your store’s needs outgrow the capabilities of your current solution?</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 23 Feb 2019 03:59:10 -0800</pubDate>
+    <lastBuildDate>Sat, 23 Feb 2019 03:59:10 -0800</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="{{ site.description }}">
+
+    <meta name="google-site-verification" content="PR-Ca9SlH-lUGO5R7aoRbMA6sFky8Nklh70Q3GWEKVI" />
+    {% include google-analytics.html %}
+
+    <!-- ICONS -->
+    <!-- https://realfavicongenerator.net/ -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    {% comment %} Custom CSS + Bootstrap Core CSS - Uses http://bootswatch.com/flatly/ {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{{ 'assets/css/vendor.css' | relative_url }}">
+
+    {% comment %} FA {% endcomment %}
+    <link rel="stylesheet" href="{{ 'assets/css/fontawesome.min.css' | relative_url }}">
+
+    {% comment %} Local CSS {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{{ 'assets/css/main.css' | relative_url }}">
+</head>

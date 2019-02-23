@@ -1,0 +1,20 @@
+{
+  "name": "thriftbear-spa",
+  "version": "1.0.0",
+  "description": "Thrift Bear single page website",
+  "main": "index.html",
+  "repository": "https://github.com/jericho1ne/thriftbear-spa",
+  "scripts": {
+    "gems": "cd src && bundle install",
+    "serve": "jekyll serve --source src --destination dist --livereload",
+    "start": "npm run serve",
+    "build": "jekyll build --source src --destination dist",
+    "deploy": "jekyll build --source src --destination dist && ./deploy.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mihai Peteu + Aman Fahimullah",
+  "license": "ISC",
+  "devDependencies": {
+    "hexo-cli": "^1.0.4"
+  }
+}

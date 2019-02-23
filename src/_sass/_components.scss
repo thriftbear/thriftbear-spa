@@ -1,0 +1,341 @@
+//
+// Buttons, Lists, and other various ui elements
+//
+
+.content {
+  padding-bottom: 6em;
+}
+
+// LISTS
+.btn {
+  font-family: $header-font-family;
+  background-color: darken($color-primary, 4%);
+  color: #fff !important;
+  transition: all 0.3s ease;
+  letter-spacing: 0.025em;
+  border: 0;
+  border-radius: 0.25em;
+
+  &:hover {
+    background-color: darken($color-primary, 5%);
+  }
+}
+.btn-primary {
+  font-weight: 700;
+  background-image: none;
+}
+.btn-md {
+  // padding: .2em 1em;
+  // font-size: 1.25em;
+}
+.btn-lg {
+  // padding: .35em 1.25em;
+  // font-size: 1.5em;
+}
+.btn-xl {
+  margin-top: 0.25em;
+}
+
+// .pink {
+//   background-color: $color-tertiary;
+// }
+
+// LISTS
+ul.post-list {
+  margin-left: 0;
+  margin-bottom: 10px;
+
+  li {
+    margin-bottom: 40px;
+  }
+
+  // Make an exception and remove left margin
+  .post {
+    padding-top: 20px;
+  }
+}
+
+#services {
+  .service-cards {
+    padding-bottom: $spacing-unit*4;
+    i.fa {
+      color: $color-tertiary !important;
+    }
+  }
+}
+
+.muted-icon {
+  opacity: 0.65;
+}
+
+textarea.form-control {
+  padding: 6px 6px;
+}
+
+.icon-bar+.icon-bar{
+  margin-top: 5px;
+  // background: $color-primary;
+}
+.icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: #fff;
+}
+
+textarea {
+  width: 90%;
+}
+input.form-control,
+textarea.form-control {
+  font-size: $font-size-base;
+  transition: all 0.4s ease;
+  background-color: $color-gray-lightest;
+  color: $color-gray-darkest;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid $color-gray-dark;
+  padding: 10px 6px;
+  box-shadow: 0;
+  outline: 0;
+  &:hover {
+    // box-shadow: 0 2px 0px 10px $color-tertiary;
+    //border-bottom: 2px solid $color-tertiary;
+  }
+  &:active,
+  &:focus {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid $color-secondary;
+    box-shadow: none !important;
+    // box-shadow: 0 0 0 4px $color-secondary;
+    background-color: lighten($color-secondary, 30%);
+    //border-bottom: 2px solid $color-tertiary;
+  }
+}
+
+// Soundcloud and Video embeds
+.soundcloud {
+  // padding: 1em 2em;
+  margin: 1em 0 .7em 0;
+
+  iframe {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+}
+
+.video-clip {
+  // width: 100%;
+  // overflow: hidden;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  height: auto;
+
+  // .embed-container embed {  }
+  iframe {
+    padding: 0;
+    margin: 3em 0 2em 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-primary;
+
+
+    // width: 100%;
+    // overflow: hidden;
+  }
+}
+
+// Can also specify video::
+*::-webkit-media-controls-panel {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+*::-webkit-media-controls-start-playback-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+// Round images (About team members, Timeline photos)
+.team-member {
+    margin-bottom: 3.5em;
+    text-align: center;
+
+    h4 {
+        margin-top: 15px;
+        margin-bottom: 0;
+    }
+    p {
+      margin-bottom: 0.15em;
+    }
+
+    img {
+        margin: 0 auto;
+        box-shadow: 0.15rem .15rem 0.5rem rgba(80, 80, 80, 0.3);
+    }
+}
+
+#blog img {
+  padding: 4em 1em;
+}
+
+// Landing page text
+header {
+  z-index: 10;
+  min-height: 100vh;
+  height: auto;
+  width: auto;
+  text-align: center;
+  color: #fff;
+  font-family: $header-font-family;
+
+  &.small-header {
+    min-height: 20vh;
+  }
+  .hero {
+    opacity: 0.96;
+    text-shadow: 0.05rem 0.05rem 0.15rem rgba(0, 0, 0, 0.95);
+  }
+  .btn {
+    background: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+  }
+  .banner-top, .banner-cta {
+    position: absolute;
+    width: auto;
+    text-align: left;
+    margin: 0 auto;
+    z-index: 101;
+    // top: 20%;
+  }
+  .banner-top {
+    top: 20%;
+  }
+  .banner-cta {
+  //   position: absolute;
+  //   width: 100%;
+  }
+}
+
+.cta {
+  border-top: 1px solid rgba(0, 0, 0, .2);
+  padding: 4em;
+}
+
+//
+.intro-text {
+  z-index: 10 !important;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.video-overlay,
+.intro-text,
+.video-bg {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+}
+
+.video-overlay {
+  padding-bottom: 0px !important;
+  background: -webkit-gradient(linear, left top, left bottom,
+      from(rgba(100,100,100,0)),
+      to(rgba(0,0,0,0.4)), color-stop(0, rgba(20, 20, 20, 0.45))
+  );
+
+  // background-color: darken($color-gray-darkest, 10);
+  opacity: 1;
+  min-width: 100%;
+  min-height: 100vh;
+  width: auto;
+  height: auto;
+  z-index: 5;
+}
+
+// Background Video
+.video-wrapper {
+  position: absolute;
+  margin: 0px;
+  padding: 0px;
+  top: 0;
+  left: 0;
+  background-image: url('../img/header-bg.jpg');
+  background-position: right center;
+
+  background-repeat: none;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  // width: auto;
+  // height: auto;
+
+  video {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    min-width: 100%;
+    min-height: 100%;
+
+    width: auto;
+    height: auto;
+    z-index: 1;
+
+    background: rgba(0,0,0,0);
+    // display: block;
+  }
+}
+
+section {
+  z-index: 10;
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  padding: 6em 0;
+  background-color: lighten($color-gray-lightest, 10);
+  border-bottom: 1px solid $color-primary;
+}
+
+ul.social-buttons {
+  margin-bottom: 0;
+
+  li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 24px !important;
+    padding: 8px;
+    outline: 0;
+    color: #fff;
+    background-color: $color-tertiary;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .2s;
+
+    // Icon Color
+    i {
+      color: #fff !important;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: lighten($color-tertiary, 25);
+    }
+  }
+}

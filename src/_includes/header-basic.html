@@ -1,0 +1,44 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top" id="page-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <!-- <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> -->
+        <i class="fa fa-bars hamburger text-white"></i>
+      </button>
+      <a class="navbar-brand page-scroll" href="{{ '#page-top' | relative_url }}">
+        <img class="site-logo"
+            src="{{ 'assets/svg/fsc.svg' | relative_url }}"
+            onerror="this.onerror=null; this.src='{{ \'assets/svg/fsc.png\' | relative_url }}'"
+            alt="{{ site.title }}" title="{{ site.title }}"
+        >
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li class="hidden">
+            <a href="#page-top"></a>
+        </li>
+        <li><a class="page-scroll navbar-link" href="/">Home</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<section class="small-header">
+  <div class="container intro-parent">
+    <div class="banner-top">
+      <!-- <div class="hero">Professional media packets for aspiring artists</div> -->
+      <div class="hero">
+        {{ site.copyright }}
+      </div>
+    </div>
+  </div>
+</section>

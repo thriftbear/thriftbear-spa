@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body class="index">
+
+    <div class="client-portfolio">
+      <div
+        class="header"
+        style="background-image:url('../assets/img/portfolio/{{ page.image }}.jpg')"
+      >
+        <div class="title">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <button class="close-button">
+          <a href="/#portfolio">
+            <i class="fa fa-close fa-3x text-white"></i>
+          </a>
+        </button>
+      </div>
+
+      <!-- CONTAINER -->
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>{{ page.subtitle }}</h2>
+            <hr class="">
+            {% if page.description %}
+              <p>{{ page.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+        <!-- ITUNES STORE -->
+        {% if page.itunes_album %}
+        <div class="row">
+          <div class="col-sm-12">
+            <a href="{{ page.itunes_album }}?mt=1&app=music&ls=1"
+            style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/assets/shared/text-lockups/en-us/standard-black.svg) no-repeat;width:252px;height:54px;"></a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <!-- /CONTAINER -->
+
+      <!-- CONTAINER -->
+      <div class="container">
+
+        <!-- SOUNDCLOUD -->
+        <div class="row">
+          {% for track in page.soundcloud %}
+          <div class="col-sm-6 soundcloud">
+            <h3>{{ track.name }}</h3>
+            <iframe width="100%" height="120" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ track.id }}&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- BANDCAMP -->
+        <div class="row">
+          {% for track in page.bandcamp %}
+          <div class="col-sm-6 soundcloud">
+            <h3>{{ track.name }}</h3>
+            <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album={{ track.id }}/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless></iframe>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12">
+            <hr class="spacer">
+            <!-- VIMEO -->
+            {% if page.vimeo_id %}
+              <iframe class="video-clip" width="720" height="auto"
+                src="https://player.vimeo.com/video/{{ page.vimeo_id }}?title=0&byline=0&portrait=0&quality=1080p"
+                frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <!-- YOUTUBE -->
+            {% elsif page.youtube_id %}
+              <iframe class="video-clip" width="720" height="auto"
+                src="https://www.youtube.com/embed/{{ page.youtube_id }}?&version=3&vq=hd1080"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <!-- FACEBOOK VIDEO -->
+            {% elsif page.fb_video_link %}
+              <iframe class="video-clip" width="100%" height="100%"
+                src="https://www.facebook.com/plugins/video.php?href={{ page.fb_video_link }}&show_text=0&width=auto"
+                style="border:none;overflow:hidden"
+                scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"
+              ></iframe>
+            {% endif %}
+          </div>
+        </div>
+
+
+
+        <!-- GO BACK BUTTON -->
+        <div class="row text-center">
+          <hr class="spacer">
+          <a href="/#portfolio" class="btn btn-lg text-center">
+            Go Back
+          </a>
+          <hr class="spacer">
+          <hr class="spacer">
+        </div>
+
+      </div>
+      <!-- /CONTAINER -->
+    </div>
+    <!-- /client-portfolio -->
+  </body>
+</html>

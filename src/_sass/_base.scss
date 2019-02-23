@@ -1,0 +1,198 @@
+@import "variables";
+
+//
+// Base elements
+//
+
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Basic styling
+body {
+  background-color: lighten($color-gray-lightest, 10%);
+  webkit-tap-highlight-color: $color-tertiary;
+}
+
+// Container Fluid, my way
+.borderless {
+  padding-left: -15px;
+  padding-right: -15px;
+}
+
+// Set `margin-bottom` to maintain vertical rhythm
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit * 2;
+}
+
+// `main` element
+main {
+  display: block;
+}
+
+hr {
+  opacity: 0.6;
+}
+
+.spacer {
+  opacity: 0;
+  padding: 1.5rem 0;
+}
+
+// Images
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+img.photo {
+  padding: 0.75rem;
+  margin: 0;
+  border: 1px solid darken($color-gray, 10);
+}
+
+// Figures
+figure > img {
+  display: block;
+}
+
+// Lists
+ul, ol {
+  margin-bottom: 0;
+  li {
+    margin-left: 5rem;
+    line-height: 3rem;
+  }
+}
+
+// Links
+a {
+  color: darken($color-primary, 10);
+  text-decoration: none;
+
+  &:visited {
+    color: darken($color-primary, 10);
+  }
+
+  &:hover {
+    color: $text-color;
+    text-decoration: underline;
+  }
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: underline;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+// Blockquotes
+
+label {
+  color: darken($color-gray,3%);
+}
+
+.container {
+// padding-right: 20px;
+// padding-left: 20px;
+
+}
+// Code formatting
+pre,
+code {
+  @include relative-font-size(0.9375);
+  border: 1px solid $color-gray-light;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.img-centered {
+  margin: 0 auto;
+}
+
+.bg-alt {
+  background-color: $color-gray;
+}
+
+// RESPONSIVENESSSSS
+/* --------- 0-320px: iPhone 5 ---- */
+@media screen and (max-width: 320px) {
+  @include build-responsive-page(0.9);
+  .video-clip iframe {
+    min-height: 260px !important;
+  }
+  // @include slim-navbar-brand();
+}
+/* --------- 321-546px: iPhone 6 / Plus --------------- */
+@media screen and (min-width: 321px) and (max-width: 546px) {
+  @include build-responsive-page(0.95);
+  .video-clip iframe {
+    min-height: 280px !important;
+  }
+  // @include slim-navbar-brand();
+}
+/* --------- 547-767px -------------------------------- */
+@media screen and (min-width: 547px)  and (max-width: 767px) {
+  @include build-responsive-page(1.0);
+  .video-clip iframe {
+    min-height: 540px !important;
+  }
+  // @include slim-navbar-brand();
+}
+/* --------- 768px - 950px ---------------------------- */
+@media screen and (min-width: 768px) and (max-width: 950px) {
+  .video-clip iframe {
+    min-height: 620px !important;
+  }
+  @include build-responsive-page(1.05);
+}
+/* --------- 950px - 1200px ----------------------------- */
+@media screen and (min-width: 951px) and (max-width: 1200px) {
+  .video-clip iframe {
+    min-height: 680px !important;
+  }
+  @include build-responsive-page(1.1);
+}
+/* --------- 1201px - 1600px ------------------------------ */
+@media screen and (min-width: 1201px) and (max-width: 1600px) {
+  .video-clip iframe {
+    min-height: 700px !important;
+  }
+  @include build-responsive-page(1.15);
+}
+/* --------- 1601px + ----------- */
+@media screen and (min-width: 1601px) and (max-width: 10000px) {
+  .video-clip iframe {
+    min-height: 720px !important;
+  }
+  @include build-responsive-page(1.2);
+}
