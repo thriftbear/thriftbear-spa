@@ -97,10 +97,10 @@ header {
 }
 
 a:not(.navbar-link):not(.navbar-brand):not(.btn) {
-  color: $color-tertiary !important;
+  color: $color-accent !important;
   font-weight: 500;
   &:visited {
-    color: $color-tertiary !important;
+    color: $color-accent !important;
   }
   &:hover {
   }
@@ -132,8 +132,8 @@ ul, ol, dl, figure,
 
 blockquote {
   position: relative;
-  padding: 2em;
-  background: #eaeaea;
+  padding: 2em !important;
+  background: $color-tertiary;
   border-radius: 2rem;
   // padding-left: 20px;
 
@@ -153,7 +153,7 @@ blockquote {
     position: absolute;
     opacity: 0.9;
     content: "\201C";
-    color: lighten($color-primary, 10%);
+    color: darken($color-accent, 10%);
     left: 1em;
     top: 0.6em;
     font-family: Georgia, serif;
@@ -163,7 +163,7 @@ blockquote {
     position: absolute;
     opacity: 0.9;
     content: "\201D";
-    color: lighten($color-primary, 10%);
+    color: lighten($color-accent, 10%);
     right: 1em;
     bottom: 0.3em;
     font-family: Georgia, serif;

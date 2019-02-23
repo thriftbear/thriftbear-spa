@@ -9,7 +9,7 @@
 // LISTS
 .btn {
   font-family: $header-font-family;
-  background-color: darken($color-primary, 4%);
+  background-color: darken($color-accent, 4%);
   color: #fff !important;
   transition: all 0.3s ease;
   letter-spacing: 0.025em;
@@ -17,7 +17,7 @@
   border-radius: 0.25em;
 
   &:hover {
-    background-color: darken($color-primary, 5%);
+    background-color: lighten($color-accent, 5%);
   }
 }
 .btn-primary {
@@ -322,7 +322,7 @@ ul.social-buttons {
     padding: 8px;
     outline: 0;
     color: #fff;
-    background-color: $color-tertiary;
+    background-color: $color-accent;
     -webkit-transition: all .3s;
     -moz-transition: all .3s;
     transition: all .2s;
@@ -335,7 +335,7 @@ ul.social-buttons {
     &:hover,
     &:focus,
     &:active {
-      background-color: lighten($color-tertiary, 25);
+      background-color: lighten($color-accent, 25);
     }
   }
 }

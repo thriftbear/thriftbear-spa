@@ -56,10 +56,9 @@ ul.social-media-list {
     width: 50px;
     border: 0;
     padding: 10px 0;
-    border-radius: 50%;
     transition: all 0.3s ease;
     cursor: pointer;
-    background: $color-tertiary;
+    // background: $color-tertiary;
 
     i {
       font-size: 1.8em !important;
@@ -85,7 +84,6 @@ ul.social-media-list {
   // BG COLOR UPON SCROLL
   &.navbar-shrink {
     // background-color: lighten($color-primary, 10);
-    // background-color: $color-primary;
     border-color: transparent;
   }
 
@@ -105,7 +103,7 @@ ul.social-media-list {
     &:focus,
     &:active,
     &.active {
-      color: lighten($color-secondary, 20);
+      color: lighten($color-accent, 20);
     }
   }
 
@@ -115,13 +113,13 @@ ul.social-media-list {
     >.active>a {
       border-radius: 6px;
       color: #fff;
-      background-color: $color-tertiary;
+      background-color: $color-accent;
     }
 
     >.active>a:hover,
     >.active>a:focus {
         color: #fff;
-        background-color: $color-tertiary;
+        background-color: $color-accent;
     }
 
     >li {
