@@ -1,0 +1,6 @@
+node_modules
+*.sublime-workspace
+dist/
+.sass-cache
+.DS_Store
+src/.DS_Store
