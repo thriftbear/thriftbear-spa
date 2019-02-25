@@ -24,10 +24,10 @@ $(function() {
   });
 });
 
-// Highlight the top nav as scrolling occurs
-$('body').scrollspy({
-    target: '.navbar-fixed-top'
-})
+// // Highlight the top nav as scrolling occurs
+// $('body').scrollspy({
+//     target: '.navbar-fixed-top'
+// })
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
@@ -55,31 +55,45 @@ document.addEventListener("DOMContentLoaded", function(event) {
   //     'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>' +
   //     '</iframe>';
 
+  /*
   var vimeoClipHtml =
     '<iframe src="https://player.vimeo.com/video/305559748" width="100%" height="auto" ' +
     'frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-
   $('#video-clip-wrapper').append(vimeoClipHtml);
+*/
 
   // var videoLoop = document.getElementById("video-loop");
   // console.warn("Video playing.");
   // videoLoop.play();
 
-  // $(window).scroll(function() {
-  //   var windowTop = $(this).scrollTop();
-  //   var windowBottom = windowTop + $(this).innerHeight();
-  //   var browserHeight = $(window).height();
-  //   var opacity = 1.1 - (windowTop / browserHeight);
+  // Preset variables necessary for navbar hiding on scroll
+  var previousScroll = 0;
+  var $navbar = $('nav.navbar');
+  var navbarOffset = $navbar.height();
 
-  //   if (opacity > 1) {
-  //     opacity = 1;
-  //   }
 
-  //   if (windowTop > browserHeight) {
-  //     $('.video-wrapper').css('display', 'none');
-  //   } else {
-  //     $('.video-wrapper').css('display', 'block');
-  //   }
-  //   $('.video-wrapper').css('opacity', opacity);
-  // }).scroll();
+  $(window).scroll(function() {
+    var windowTop = $(this).scrollTop();
+
+    // Show navbar on upward scroll
+    if (windowTop >= navbarOffset) {
+      // Hide navbar on downward scroll
+      if (windowTop > previousScroll) {
+        if (!$navbar.hasClass('hidden')) {
+          $navbar.addClass('hidden');
+        }
+      } else {  // Show navbar on upward scroll
+        if ($navbar.hasClass('hidden')) {
+           $navbar.removeClass('hidden');
+        }
+      }
+    }
+    // Show navbar when user reaches TOP of page
+    else {
+      if ($navbar.hasClass('hidden')) {
+        $navbar.removeClass('hidden');
+      }
+    }
+    previousScroll = windowTop;
+  }).scroll();
 });

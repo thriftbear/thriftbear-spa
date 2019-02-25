@@ -36,6 +36,7 @@ ul.social-media-list {
 // Navigation bar
 //
 .navbar {
+
   @media screen  and (max-width: 767px) {
     .navbar-collapse {
       border: 0;
@@ -47,34 +48,37 @@ ul.social-media-list {
     .navbar-collapse {
       border-bottom-left-radius: none;
       border-bottom-right-radius: none;
+      padding: 0 4rem 0 0;
+
     }
   }
 
   .navbar-toggle {
+    border: 0;
+    border-radius: 50%;
     float: left;
     height: 50px;
     width: 50px;
-    border: 0;
     padding: 10px 0;
     transition: all 0.3s ease;
     cursor: pointer;
-    // background: $color-tertiary;
+    color: $color-accent;
 
     i {
       font-size: 1.8em !important;
     }
 
     &:hover {
-      background: lighten($color-tertiary,12);
+    background: darken($color-primary, 12);
       .icon-bar {
-        background: darken($color-tertiary,2);
+        background: darken($color-accent, 2);
       }
     }
     }
 
   &.navbar-default {
     // background: lighten($color-green, 20) !important;
-    background:$color-secondary;
+    // background:$color-secondary;
   }
 
   border: 0;
@@ -129,14 +133,15 @@ ul.social-media-list {
       > .navbar-link {
         text-shadow: 0.05rem 0.05rem 0.05rem rgba(0, 0, 0, 0.85);
         color: $color-gray-lightest;
+        background: $color-accent;
         font-family: $header-font-family;
         font-weight: 700;
         text-transform: uppercase;
+        font-style: italic;
 
         &:hover {
           transition: all 0.4s ease;
-          color: lighten($color-primary, 60);
-          text-decoration: none;
+          background: lighten($color-accent, 12);
         }
       }
     }
