@@ -18,10 +18,10 @@ product_name: ThriftBear
 email: hello@thriftbear.com
 description: "Hosted ecommerce solutions are a great option for simple stores with low to medium traffic. But what happens when your store’s needs outgrow the capabilities of your current solution?"
 
-hero_text: The only store framework you’ll ever need.
-hero_cta: LEARN MORE
+hero_text: Modern Store. Better Customers.<BR>More Business.
+hero_cta: GET STARTED
 
-# app_link_1: 
+# app_link_1:
 
 
 # Blog-related
@@ -50,7 +50,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate   
+  - jekyll-paginate
 # # Postal address (add as many lines as necessary)
 # address:
 # #  - line: Los Angeles, CA 90210
