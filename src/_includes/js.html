@@ -1,12 +1,21 @@
-<!-- jQuery Version 1.11.0 -->
-<script src="{{ 'assets/js/jquery-1.11.0.js' | relative_url }}"></script>
+{% comment %}  jQuery Version 1.11.0 {% endcomment %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
+{% comment %}  Bootstrap Core JavaScript {% endcomment %}
 <script src="{{ 'assets/js/bootstrap.min.js' | relative_url }}"></script>
 
-<!-- Plugin JavaScript -->
+{% comment %}  Plugin JavaScript {% endcomment %}
 <script src="{{ 'assets/js/jquery.easing.min.js' | relative_url }}"></script>
 <script src="{{ 'assets/js/header-anim.min.js' | relative_url }}"></script>
 
-<!-- Custom Theme JavaScript -->
+{% comment %} Scroll Libraries {% endcomment %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
+
+<!-- <script src="{{ 'assets/js/jquery.visible.js' | relative_url }}" type="text/javascript" ></script> -->
+<script src="{{ 'assets/js/scrollMagic.js' | relative_url }}" type="text/javascript" ></script>
+<script src="{{ 'assets/js/scrollmagic.addIndicators.js' | relative_url }}" type="text/javascript" ></script>
+
+{% comment %}  Custom Theme JavaScript {% endcomment %}
+<!-- <script src="{{ 'assets/js/main-w-scrollmagic.js' | relative_url }}" type="text/javascript" ></script> -->
 <script src="{{ 'assets/js/main.js' | relative_url }}"></script>
+

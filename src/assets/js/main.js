@@ -24,6 +24,20 @@ $(function() {
   });
 });
 
+function preventDefault(e) {
+  e = e || window.event;
+  if (e.preventDefault)
+      e.preventDefault();
+  e.returnValue = false;
+}
+
+function preventDefaultForScrollKeys(e) {
+    if (keys[e.keyCode]) {
+        preventDefault(e);
+        return false;
+    }
+}
+
 // // Highlight the top nav as scrolling occurs
 // $('body').scrollspy({
 //     target: '.navbar-fixed-top'
@@ -34,66 +48,132 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
-$('div.modal').on('show.bs.modal', function() {
-	var modal = this;
-	var hash = modal.id;
-	window.location.hash = hash;
-	window.onhashchange = function() {
-		if (!location.hash){
-			$(modal).modal('hide');
-		}
-	}
-});
-
-
 document.addEventListener("DOMContentLoaded", function(event) {
-  // Insert video clip after page load
-
-  //   var clipHtml =
-  //     '<iframe width="100%" height="auto" ' +
-  //     'src="https://www.youtube.com/embed/videoseries?list=PLKLZzVqyarZut67VWZEbf5Sh4ss0gnvV0&version=3&vq=hd1080&rel=0&amp;showinfo=0" ' +
-  //     'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>' +
-  //     '</iframe>';
-
-  /*
-  var vimeoClipHtml =
-    '<iframe src="https://player.vimeo.com/video/305559748" width="100%" height="auto" ' +
-    'frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
-  $('#video-clip-wrapper').append(vimeoClipHtml);
-*/
-
-  // var videoLoop = document.getElementById("video-loop");
-  // console.warn("Video playing.");
-  // videoLoop.play();
-
   // Preset variables necessary for navbar hiding on scroll
   var previousScroll = 0;
   var $navbar = $('nav.navbar');
   var navbarOffset = $navbar.height();
 
 
-  $(window).scroll(function() {
-    var windowTop = $(this).scrollTop();
+  /**
+   * SCROLLING TESTS!
+   */
+  const $home = $('header');
+  const $mission = $('#mission');
+  var $slider = $('#slider .gallery');
 
-    // Show navbar on upward scroll
-    if (windowTop >= navbarOffset) {
-      // Hide navbar on downward scroll
-      if (windowTop > previousScroll) {
-        if (!$navbar.hasClass('hidden')) {
-          $navbar.addClass('hidden');
-        }
-      } else {  // Show navbar on upward scroll
-        if ($navbar.hasClass('hidden')) {
-           $navbar.removeClass('hidden');
-        }
-      }
+  // const $detail  = $('#detail');
+  // const $about  = $('#about');
+  // const $contact = $('#contact');
+
+  console.log('Everyting criss and curry.');
+
+  // PRESETS
+  var sliderHeight = $slider.outerHeight();
+  var sliderTop = $slider.offset().top;
+  var sliderBottom = sliderTop + sliderHeight;
+  const debug = true;
+  var windowTop = 0;
+  var windowBottom = 0;
+  var scrollPosition = 0;
+  var prevPosition = 0;
+  var scrollDirection = 'down';
+  var windowWidth = $(window).width();
+  var windowHeight = $(window).height();
+  console.log('sliderHeight: ' + sliderHeight);
+
+  var sliderPos = 0;
+
+  /**
+   * Detect scroll direction, vertcal, and horizontal amount
+   */
+  $(window).scroll(function() {
+    /**
+     * Initialize flickity slider library
+     */
+    $slider.flickity({
+      "freeScroll": true,
+      "wrapAround": false,
+      "pageDots": false,
+      // "setGallerySize": false,
+      "cellAlign": 'left',
+      // "contain": true
+    });
+
+    scrollPosition = windowTop = $(this).scrollTop();
+    windowBottom = windowTop + $(this).innerHeight();
+
+    // DETERMINE SCROLL DIRECTION
+    scrollDirection = (scrollPosition > prevPosition ? 'down' : 'up');
+    // Saves the "new" prevPosition for iteration.
+    prevPosition = scrollPosition;
+
+    // Grab browser dimensions in case user has resized it
+    windowWidth = $(window).width();
+    windowHeight = $(window).height();
+
+    //  homeBottom = $home.offset().bottom;
+    //  homeScrollLeft = $home.scrollLeft();
+    if (debug) {
+      console.log(
+        `direction=${scrollDirection} | scrollPos= ${Math.floor(scrollPosition)} // `
+        + `sliderHeight=${Math.floor(sliderHeight)} // `
+        + `sliderTop=${Math.floor(sliderTop)} | sliderBottom=${Math.floor(sliderBottom)} `
+        // + `homeScrollLeft=${homeScrollLeft}`
+      );
+      // console.log(` windowTop: ${windowTop} / windowBottom: ${windowBottom}`);
+      // console.log(` scrollPosition: ${scrollPosition} `);
+      // console.log('=============================================');
     }
-    // Show navbar when user reaches TOP of page
-    else {
-      if ($navbar.hasClass('hidden')) {
-        $navbar.removeClass('hidden');
-      }
+
+
+    if (scrollDirection == "down" && scrollPosition >= sliderTop-85 && sliderPos !== 2) {
+      console.warn(" >> >> >> ")
+      $('#slider .gallery .flickity-viewport').animate({
+          scrollLeft: 2000
+        }, 700, 'swing');
+        sliderPos = 2;
     }
+    if (scrollDirection == "up" && scrollPosition < sliderTop+65  && sliderPos !== 1) {
+      console.warn(" << << << ")
+      $('#slider .gallery .flickity-viewport').animate({
+          scrollLeft:  0
+        }, 700, 'swing');
+        sliderPos = 1;
+    }
+      // // DEBUG
+      // $("#slider").css('background-color', 'rgba(200,0,0,0.5)');
+
+      // // Or you can use window.addEventListener
+      // horizontalScrollPos = $slider.scrollLeft();
+
+      // $(document).bind('scroll', function () {
+      //   if (scrollDirection == 'down') {
+      //     console.warn(" >> >> >> ")
+      //     $sliderViewport.animate({
+      //       scrollLeft: horizontalScrollPos + windowWidth
+      //     }, 450, 'linear');
+      //     // $slider.scrollLeft(horizontalScrollPos + 28);
+      //   } else if (scrollDirection == 'up') {
+      //     console.warn(" << << << ");
+      //       $sliderViewport.animate({
+      //         scrollLeft:  -windowWidth
+      //       }, 450, 'linear');
+      //     // $slider.scrollLeft(horizontalScrollPos - 18);
+      //   }
+      // });
+
+      //$('body').css("-webkit-transform", `translate(${windowWidth}px,0px)`);
+    // }
+    // else {
+    //   // DEBUG
+    //   $("#slider").css('background-color', 'transparent');
+    // }
+
     previousScroll = windowTop;
   }).scroll();
+
+
+  // Hack fix per https://github.com/metafizzy/flickity/issues/205#issuecomment-186943594
+  window.dispatchEvent(new Event('resize'));
 });
