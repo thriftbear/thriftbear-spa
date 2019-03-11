@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     "pageDots": false,
     // "setGallerySize": false,
     "cellAlign": 'left',
+    "prevNextButtons": false,
     // "contain": true
   });
 
@@ -113,14 +114,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
       console.warn(" >> >> >> ")
       $('#slider .gallery .flickity-viewport').animate({
           scrollLeft: 1200
-        }, 800, 'swing');
+        }, 650, 'swing');
         sliderPos = 2;
     }
     if (scrollDirection == "up" && scrollPosition < sliderTop+65  && sliderPos !== 1) {
       console.warn(" << << << ")
       $('#slider .gallery .flickity-viewport').animate({
           scrollLeft:  0
-        }, 800, 'swing');
+        }, 650, 'swing');
         sliderPos = 1;
     }
 
