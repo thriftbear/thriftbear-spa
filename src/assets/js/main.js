@@ -50,19 +50,13 @@ $('.navbar-collapse ul li a').click(function() {
 
 document.addEventListener("DOMContentLoaded", function(event) {
   // Preset variables necessary for navbar hiding on scroll
-  var previousScroll = 0;
   var $navbar = $('nav.navbar');
   var navbarOffset = $navbar.height();
 
-
   /**
-   * SCROLLING RELATED
+   * SCROLLING RELATED PRESETS
    */
-  var $slider = $('#slider .gallery');
-
-  console.log('Everyting criss and curry.');
-
-  // PRESETS
+  var previousScroll = 0;
   var sliderHeight = $slider.outerHeight();
   var sliderTop = $slider.offset().top;
   var sliderBottom = sliderTop + sliderHeight;
@@ -73,11 +67,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var scrollDirection = 'down';
   var windowWidth = $(window).width();
   var windowHeight = $(window).height();
+  // Horizontal scroll related
   var sliderPos = 0;
+  var sliderHorzIncrement = 12;
+  $sliderViewport = $('#slider .gallery .flickity-viewport');
+  var sliderScrollLeft = 0;
+
 
   /**
    * Initialize flickity slider library
    */
+  var $slider = $('#slider .gallery');
+
   $slider.flickity({
     "freeScroll": true,
     "wrapAround": false,
@@ -110,24 +111,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
       + `sliderTop=${Math.floor(sliderTop)} | sliderBottom=${Math.floor(sliderBottom)} `
     );
 
+    sliderScrollLeft = $sliderViewport.scrollLeft();
+
     if (scrollDirection == "down" && scrollPosition >= sliderTop-85 && sliderPos !== 2) {
       console.warn(" >> >> >> ")
-      $('#slider .gallery .flickity-viewport').animate({
+      // $sliderViewport.scrollLeft(sliderScrollLeft + sliderHorzIncrement);
+      $sliderViewport.animate({
           scrollLeft: 1200
         }, 650, 'swing');
-        sliderPos = 2;
+      sliderPos = 2;
     }
     if (scrollDirection == "up" && scrollPosition < sliderTop+65  && sliderPos !== 1) {
       console.warn(" << << << ")
-      $('#slider .gallery .flickity-viewport').animate({
+      // $sliderViewport.scrollLeft(sliderScrollLeft - sliderHorzIncrement);
+      $sliderViewport.animate({
           scrollLeft:  0
         }, 650, 'swing');
-        sliderPos = 1;
+      sliderPos = 1;
     }
-
-    // // DEBUG
-    // $("#slider").css('background-color', 'rgba(200,0,0,0.5)');
-    //$('body').css("-webkit-transform", `translate(${windowWidth}px,0px)`);
 
     previousScroll = windowTop;
   }).scroll();

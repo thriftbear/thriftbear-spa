@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       // .addIndicators({name: "1 (duration)"}) // add indicators
       .addTo(controller);
 
-    previousScroll = windowTop;
+      previousScroll = windowTop;
   }).scroll();
 
 

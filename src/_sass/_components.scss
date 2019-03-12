@@ -371,6 +371,33 @@ ul.social-buttons {
   padding: 0 4rem 4rem 0;
 }
 
+
+// SLIDER RELATED
+#slider-wrapper {
+  width: 100%;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px dashed #6BD9ED;
+}
+#pinned-element {
+  width: 50%;
+  height: 400px;
+  flex-shrink: 0;
+  border: 5px dashed #A7E040;
+  position: relative;
+  right: -15px;
+}
+#slider {
+  height: 100vh;
+  padding: 2em;
+  border: 1px solid #eaeaea;
+}
+.gallery {
+  height: 100%;
+  background: transparent;
+}
 .pinned-div {
   position: relative;
 }
@@ -378,6 +405,11 @@ ul.social-buttons {
 .gallery-cell {
   margin: 0;
   padding: 0 5em;
+}
+
+
+.carousel-cell {
+  height: 100%;
 }
 
 
